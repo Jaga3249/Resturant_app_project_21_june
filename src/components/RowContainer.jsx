@@ -8,32 +8,28 @@ import { useStateValue } from "../Context/StateProvider";
 
 import { useState } from "react";
 import { actionType } from "../Context/reducer";
+import { BsArrowBarUp } from "react-icons/bs";
 
 const RowContainer = ({ flag, data, scrollValue }) => {
   const [{ cartItems }, dispatch] = useStateValue();
   const [items, setItems] = useState([]);
-
   const rowContainer = useRef();
   useEffect(() => {
     rowContainer.current.scrollLeft += scrollValue;
   }, [scrollValue]);
 
-  // const addTocart = () => {
-  //   dispatch({
-  //     type: actionType.SET_CART_ITEMS,
-  //     cartItems: items,
-  //   });
-  //   localStorage.setItem("cartItems", JSON.stringify(items));
-  // };
-  const upload = data && data.map((n) => n);
-  useEffect(() => {
+  const addTocart = () => {
     dispatch({
       type: actionType.SET_CART_ITEMS,
       cartItems: items,
     });
-  }, [items]);
+    localStorage.setItem("cartItems", JSON.stringify(items));
+  };
 
-  console.log(items);
+  useEffect(() => {
+    addTocart();
+  }, [items]);
+  // console.log(cartItems);
 
   return (
     <div
@@ -62,7 +58,7 @@ const RowContainer = ({ flag, data, scrollValue }) => {
                 whileTap={{ scale: 0.75 }}
                 className="bg-red-600 w-10 h-10 rounded-full flex justify-center items-center mr-6
                    "
-                onClick={() => setItems([upload])}
+                onClick={() => setItems([...cartItems, item])}
               >
                 <MdShoppingBasket className="text-white  cursor-pointer" />
               </motion.div>

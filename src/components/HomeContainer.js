@@ -53,7 +53,7 @@ const HomeContainer = () => {
                 <p className="text-base text font-semibold">{n.name}</p>
                 <p className="text-sm text-lighttextGray my-2">{n.desc}</p>
                 <p className="text-sm font-semibold text-headingColor">
-                  <span className="text-red-400"> $</span>
+                  <span className="text-red-400"> ₹</span>
                   {n.Price}
                 </p>
               </div>
