@@ -7,6 +7,7 @@ import { actionType } from "../Context/reducer";
 
 const CartItem = ({ item }) => {
   const [{ cartItems }, dispatch] = useStateValue();
+
   const [qty, setQty] = useState(item.quantity);
 
   const [items, setItems] = useState([]);
@@ -18,7 +19,9 @@ const CartItem = ({ item }) => {
       cartItems: items,
     });
   };
-
+  useEffect(() => {
+    setQty(item.quantity);
+  }, [cartItems]);
   const updateQty = (action, id) => {
     if (action == "add") {
       setQty(qty + 1);
@@ -52,7 +55,7 @@ const CartItem = ({ item }) => {
   return (
     <div
       key={item.id}
-      className="bg-gray-200 w-full h-[70px] flex items-center gap-3  rounded-xl mb-3"
+      className="bg-gray-200 w-[95%] h-[70px] flex items-center gap-1  rounded-xl my-2 mx-3  "
     >
       <img src={item?.imageUrl} alt="" className="w-20" />
       {/* name-section */}

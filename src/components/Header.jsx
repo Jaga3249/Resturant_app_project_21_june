@@ -54,12 +54,12 @@ const Header = () => {
   return (
     // <header></header>
 
-    <header className="fixed z-50 w-screen p-2 px-4 md:p-6 md:px-16 ">
+    <header className="fixed z-20 w-screen md:px-10  bg-orange-400   ">
       {/* testop and tablet */}
 
       <div className="hidden md:flex w-full h-full p-4  items-center justify-between  ">
         <Link to={"/*"} className="flex items-center gap-2 ">
-          <img className="w-8 object-cover" src={logo} alt="" />
+          <img className="w-8 object-cover " src={logo} alt="" />
           <p className="text-headingColor text-xl font-bold">City</p>
         </Link>
 
@@ -70,16 +70,16 @@ const Header = () => {
             exit={{ opacity: 0, x: 200 }}
             className="flex items-center gap-8  "
           >
-            <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
+            <li className="text-base text-textColor hover:text-white duration-100 transition-all ease-in-out cursor-pointer">
               Home
             </li>
-            <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
+            <li className="text-base text-textColor hover:text-white duration-100 transition-all ease-in-out cursor-pointer">
               Menu
             </li>
-            <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
+            <li className="text-base text-textColor hover:text-white duration-100 transition-all ease-in-out cursor-pointer">
               About
             </li>
-            <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
+            <li className="text-base text-textColor hover:text-white duration-100 transition-all ease-in-out cursor-pointer">
               Service
             </li>
           </motion.ul>
@@ -103,7 +103,7 @@ const Header = () => {
           <div className="relative ">
             <motion.img
               whileTap={{ scale: 0.6 }}
-              src={user ? user.photoURL : avatar}
+              src={user && user ? user.photoURL : avatar}
               className="w-10 min-w-[40px] h-10 min-h-[40px] drop-shadow-2xl cursor-pointer rounded-full "
               alt=""
               onClick={login}

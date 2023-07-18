@@ -27,7 +27,8 @@ const App = () => {
 
   return (
     <AnimatePresence existBeforeEnter>
-      <div className="w-screen h-auto flex flex-col bg-primary">
+      {/* bg-primary  */}
+      <div className="w-screen h-auto flex flex-col">
         <Header />
 
         <main className="mt-16 w-full p-6">

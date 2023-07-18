@@ -3,13 +3,14 @@ import Delivery from "../img/delivery.png";
 import Herobg from "../img/heroBg.png";
 import i1 from "../img/i1.png";
 import { heroData } from "../utils/Data";
+import { motion } from "framer-motion";
 
 const HomeContainer = () => {
   return (
     <section className="grid grid-col-1 md:grid-cols-2 gap-3 w-full " id="home">
       {/* div-1 */}
       <div className=" py-2 flex-1 flex  flex-col items-start ml-5  gap-5">
-        <div className="flex items-center justify-center gap-1 bg-orange-200 rounded-xl">
+        <div className="flex items-center justify-center gap-1 bg-orange-200 rounded-xl mt-5">
           <p className="px-2 py-1 text-orange-500 ">Bike Delivery</p>
           <div className="w-8 h-8 bg-white rounded-full  borderoverflow-hidden  drop-shadow-xl">
             <img src={Delivery} alt="" className="w-full object-contain" />
@@ -20,15 +21,22 @@ const HomeContainer = () => {
           <span className="text-orange-600 text-[3rem]">Your City</span>
         </p>
         <p className="text-base text-textColor text-center md:text-left md:w-[80%]">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta eveniet
-          natus iure veniam ducimus, repellat ipsa ab reprehenderit
-          necessitatibus eaque provident, error laudantium exercitationem
-          molestias accusamus fugiat alias non dolores, consectetur nam laborum
-          praesentium laboriosam quasi obcaecati. Id, sequi sapiente?
+          <span className="text-orange-600 text-lg">
+            The Fastest Delivery in our city
+          </span>{" "}
+          is renowned for its unparalleled speed and reliability. With a
+          well-organized network and streamlined processes, they ensure packages
+          reach their destinations swiftly. Their dedicated delivery personnel
+          and advanced tracking system ensure efficient and secure
+          transportation. When it comes to quick and dependable delivery, the
+          Fastest Delivery service is the go-to choice in our city.
         </p>
-        <button className="bg-gradient-to-br from-orange-400 to-orange-500 w-full md:w-auto rounded-lg px-2 py-3 cursor-pointer hover:shadow-lg transition-all ease-in-out duration-100  my-4">
+        <motion.button
+          whileTap={{ scale: 0.8 }}
+          className="bg-gradient-to-br from-orange-400 to-orange-500 w-full md:w-auto rounded-lg px-2 py-3 cursor-pointer hover:shadow-lg transition-all ease-in-out duration-100  my-4"
+        >
           Order Now
-        </button>
+        </motion.button>
       </div>
       {/* div-2 */}
 
@@ -45,7 +53,8 @@ const HomeContainer = () => {
                 id={n.id}
                 className="lg:w-190  p-2 bg-cardOverlay backdrop-blur-md rounded-3xl flex items-center justify-center flex-col   "
               >
-                <img
+                <motion.img
+                  whileHover={{ scale: 0.85 }}
                   src={n.imagesrc}
                   alt=""
                   className="lg:w-40 w-20  lg:-mt-20 -mt-10  "

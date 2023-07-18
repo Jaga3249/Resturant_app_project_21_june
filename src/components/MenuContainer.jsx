@@ -28,7 +28,8 @@ const MenuContainer = () => {
                 className={`${
                   filter === category.urlParamName ? "bg-red-600" : "bg-white"
                 } w-24 min-w[94px] h-24 rounded-xl   shadow-md drop-shadow-lg transition-all 
-                ease-in-out duration-100 cursor-pointer hover:bg-red-600 flex items-center justify-center flex-col gap-2`}
+                ease-in-out duration-100 cursor-pointer hover:bg-red-600 flex items-center
+                 justify-center flex-col gap-2  md:mt-6`}
                 onClick={() => {
                   setFilter(category.urlParamName);
                 }}

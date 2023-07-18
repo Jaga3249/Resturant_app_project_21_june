@@ -8,7 +8,7 @@ import {
   MdFoodBank,
   MdAttachMoney,
 } from "react-icons/md";
-import { MdDragIndicator } from "react-icons/md";
+import { BiCategory } from "react-icons/bi";
 
 import { BsCurrencyRupee } from "react-icons/bs";
 import { categories } from "../utils/Data";
@@ -178,12 +178,12 @@ const CreateContainer = () => {
         )}
         {/* inner-div-1 */}
         <div className=" w-full py-2 flex items-center gap-2 border-b ">
-          <MdFastfood />
+          <MdFastfood className="text-3xl -ml-3" />
           <input
             type="text"
             required
             placeholder="Give Me A Title....."
-            className="w-full border-none outline-none h-10 text-lg font-semibold text-textColor border-lg rounded  p-5 "
+            className="w-full border-none outline-none h-10 text-lg font-semibold text-textColor   p-5  "
             value={title}
             onChange={(e) => {
               const inputValue = e.target.value;
@@ -196,17 +196,14 @@ const CreateContainer = () => {
 
         {/* inner-div-2*/}
         <div className="w-full flex items-center gap-2">
-          <MdDragIndicator className="text-2xl -ml-2" />
+          <BiCategory className="text-3xl -ml-3" />
           <select
             onChange={(e) => {
               const inputValue = e.target.value;
               setCategory(inputValue);
-
-              // inputValue !== "" && setCategory("Select Category");
-              // console.log(category);
             }}
             ref={select}
-            className=" w-full  h-10 bg-white outline-none rounded-sm   "
+            className=" w-full  h-10 bg-white outline-none rounded-sm pl-3   "
           >
             <option
               value="Select Category"
@@ -276,7 +273,7 @@ const CreateContainer = () => {
 
         <div className="flex flex-col md:flex-row justify-center items-center gap-4  w-full">
           <div className="flex items-center gap-3 border-red-300 w-full">
-            <MdFoodBank className="text-3xl" />
+            <MdFoodBank className="text-4xl -ml-2" />
             <input
               type="phone"
               pattern="[0-9]{1,5}"
@@ -295,7 +292,7 @@ const CreateContainer = () => {
             />
           </div>
           <div className="flex items-center gap-3 border-red-300 w-full">
-            <BsCurrencyRupee className="text-3xl " />
+            <BsCurrencyRupee className="text-4xl -ml-3 " />
 
             <input
               type="tel"

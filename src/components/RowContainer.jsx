@@ -18,18 +18,32 @@ const RowContainer = ({ flag, data, scrollValue }) => {
     rowContainer.current.scrollLeft += scrollValue;
   }, [scrollValue]);
 
-  const addTocart = () => {
-    dispatch({
-      type: actionType.SET_CART_ITEMS,
-      cartItems: items,
-    });
-    localStorage.setItem("cartItems", JSON.stringify(items));
+  const addTocart = (newitem) => {
+    if (
+      cartItems.find((item) => {
+        return item.id === newitem.id;
+      })
+    ) {
+      const newCart = [...cartItems];
+      newCart.map((item) => {
+        if (item.id === newitem.id) {
+          item.quantity += 1;
+        }
+      });
+      dispatch({
+        type: actionType.SET_CART_ITEMS,
+        cartItems: newCart,
+      });
+      localStorage.setItem("cartItems", JSON.stringify(newCart));
+    } else {
+      const newCart = [...cartItems, newitem];
+      dispatch({
+        type: actionType.SET_CART_ITEMS,
+        cartItems: newCart,
+      });
+      localStorage.setItem("cartItems", JSON.stringify(newCart));
+    }
   };
-
-  useEffect(() => {
-    addTocart();
-  }, [items]);
-  // console.log(cartItems);
 
   return (
     <div
@@ -58,7 +72,9 @@ const RowContainer = ({ flag, data, scrollValue }) => {
                 whileTap={{ scale: 0.75 }}
                 className="bg-red-600 w-10 h-10 rounded-full flex justify-center items-center mr-6
                    "
-                onClick={() => setItems([...cartItems, item])}
+                onClick={() => {
+                  addTocart(item);
+                }}
               >
                 <MdShoppingBasket className="text-white  cursor-pointer" />
               </motion.div>
